@@ -68,3 +68,35 @@ if(contactForm){
 (function(){
   // nothing here on index; case-study.html reads the query
 })();
+
+
+
+
+
+
+
+
+
+
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".navlinks");
+const icon = navToggle.querySelector("i");
+
+navToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+
+  // icon change
+  if (navLinks.classList.contains("active")) {
+    icon.classList.replace("fa-bars", "fa-xmark");
+  } else {
+    icon.classList.replace("fa-xmark", "fa-bars");
+  }
+});
+
+/* Close menu on link click (mobile UX) */
+document.querySelectorAll(".navlink").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    icon.classList.replace("fa-xmark", "fa-bars");
+  });
+});
